@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Messages - Admin{% endblock %}
+
+{% block content %}
+<section class="section-white py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="mb-4">Contact Messages</h1>
+                
+                {% if messages %}
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Message</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for message in messages %}
+                            <tr>
+                                <td>{{ message['created_at'][:16] }}</td>
+                                <td>{{ message['name'] }}</td>
+                                <td><a href="mailto:{{ message['email'] }}">{{ message['email'] }}</a></td>
+                                <td>{{ message['message'][:100] }}{% if message['message']|length > 100 %}...{% endif %}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <p class="text-muted">No messages yet.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

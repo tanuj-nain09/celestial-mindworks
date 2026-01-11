@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Contact - Celestial Mindworks{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="page-title">Get in Touch</h1>
+                <p class="page-subtitle">Ready to begin your healing journey? Let's connect.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-white py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+                <div class="contact-form-card">
+                    <form method="POST" action="{{ url_for('contact') }}">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name *</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email *</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message *</label>
+                            <textarea class="form-control" id="message" name="message" rows="6" required placeholder="Tell me a bit about what brings you here and what you're seeking support with..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-light py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h3 class="mb-4">What to Expect</h3>
+                <p>I personally respond to every message within 24-48 hours. After you reach out, we'll schedule a brief discovery call to explore if we're a good fit, and I'll recommend the best path forward for your unique needs.</p>
+                <p class="mt-4"><em>All sessions are conducted with care, confidentiality, and respect for your journey.</em></p>
+                <!-- Added direct email contact -->
+                <div class="mt-5">
+                    <p class="fs-5">Or reach out directly at <a href="mailto:info@celestialmindworks.com" class="text-decoration-none fw-bold" style="color: #7cb7a3;">info@celestialmindworks.com</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

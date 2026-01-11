@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}New Blog Post - Admin{% endblock %}
+
+{% block content %}
+<section class="section-white py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h1 class="mb-4">Create New Blog Post</h1>
+                
+                <form method="POST" action="{{ url_for('admin_new_post') }}">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title *</label>
+                        <input type="text" class="form-control" id="title" name="title" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="slug" class="form-label">Slug (URL) *</label>
+                        <input type="text" class="form-control" id="slug" name="slug" required placeholder="e.g., healing-nervous-system">
+                        <small class="form-text text-muted">URL-friendly version (lowercase, hyphens, no spaces)</small>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="body" class="form-label">Content *</label>
+                        <textarea class="form-control" id="body" name="body" rows="15" required></textarea>
+                        <small class="form-text text-muted">You can use HTML for formatting</small>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="tags" class="form-label">Tags</label>
+                        <input type="text" class="form-control" id="tags" name="tags" placeholder="healing, nervous system, astrology">
+                        <small class="form-text text-muted">Comma-separated tags</small>
+                    </div>
+                    
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">Publish Post</button>
+                        <a href="{{ url_for('blog') }}" class="btn btn-outline-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
