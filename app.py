@@ -369,6 +369,30 @@ def symbolic_intelligence():
 def integral_symbolic_yoga():
     return render_template("integral_symbolic_yoga.html")
 
+@app.route("/createadmin")
+def create_admin():
+    username = "admin"
+    password = "ChangeThisImmediately123"
+
+    conn = get_db_connection()
+    cur = conn.cursor()
+
+    cur.execute("SELECT id FROM users WHERE username = %s", (username,))
+    if cur.fetchone():
+        cur.close()
+        conn.close()
+        return "Admin already exists"
+
+    password_hash = generate_password_hash(password)
+    cur.execute(
+        "INSERT INTO users (username, password_hash) VALUES (%s, %s)",
+        (username, password_hash)
+    )
+    conn.commit()
+
+    cur.close()
+    conn.close()
+    return "Admin created. DELETE THIS ROUTE NOW."
 
 # --------------------------------------------------
 
