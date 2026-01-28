@@ -371,8 +371,8 @@ def integral_symbolic_yoga():
 
 @app.route("/createadmin")
 def create_admin():
-    username = "admin"
-    password = "ChangeThisImmediately123"
+    username = "kiranhsharma"
+    password = "Kiran@143"
 
     conn = get_db_connection()
     cur = conn.cursor()
