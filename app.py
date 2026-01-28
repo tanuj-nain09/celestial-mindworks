@@ -390,7 +390,7 @@ def course_integral_symbolic_yoga_practitioner():
     return render_template("integral_symbolic_yoga.html")
 
 @app.route("/trainings/integral-symbolic-yoga/master")
-def ccourse_integral_symbolic_yoga_master():
+def course_integral_symbolic_yoga_master():
     return render_template("integral_symbolic_yoga.html")
 
 # --------------------------------------------------
