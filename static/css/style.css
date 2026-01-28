@@ -798,6 +798,10 @@ section {
 .training-menu {
   min-width: 320px;
   padding: 0.75rem 0;
+
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .dropdown-section-title {
