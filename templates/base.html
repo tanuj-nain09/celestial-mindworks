@@ -3,9 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Celestial Mindworks - Where Ancient Science Meets Neuroscience{% endblock %}</title>
 
-    <meta name="description" content="Celestial Mindworks integrates ancient wisdom with modern neuroscience to support nervous system regulation, emotional healing, and life alignment.">
+    <!-- SEO -->
+    <title>{% block seo_title %}Celestial Mindworks{% endblock %}</title>
+    <meta name="description" content="{% block seo_description %}
+    Integrating ancient wisdom with modern neuroscience for nervous system regulation and inner alignment.
+    {% endblock %}">
+    <link rel="canonical" href="{{ request.url }}">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{% block seo_title %}Celestial Mindworks{% endblock %}">
+    <meta property="og:description" content="{% block seo_description %}{% endblock %}">
+    <meta property="og:url" content="{{ request.url }}">
+    <meta property="og:site_name" content="Celestial Mindworks">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Google Search Console -->
+    {% if config.GSC_VERIFICATION %}
+    <meta name="google-site-verification" content="{{ config.GSC_VERIFICATION }}">
+    {% endif %}
+
+    <!-- CSRF -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -19,10 +41,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=1.0">
 
-    {% block head %}{% endblock %}
+    <!-- Extra Head Injections -->
+    {% block meta_extra %}{% endblock %}
+    {% block analytics_head %}{% endblock %}
+    {% block amp_head %}{% endblock %}
 </head>
+
 <body>
 
 <!-- NAVBAR -->
@@ -40,96 +66,51 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
 
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('home') }}">Home</a>
-                </li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('modalities') }}">Modalities</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('approach') }}">Approach</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('faq') }}">FAQ</a></li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('about') }}">About</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('modalities') }}">Modalities</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('approach') }}">Approach</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('faq') }}">FAQ</a>
-                </li>
-
-                <!-- TRAININGS (UPDATED) -->
+                <!-- TRAININGS -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle"
-                       href="#"
-                       id="trainingsDropdown"
-                       role="button"
-                       data-bs-toggle="dropdown"
-                       aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                         Trainings
                     </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
 
-                    <ul class="dropdown-menu dropdown-menu-end training-menu"
-                        aria-labelledby="trainingsDropdown">
-
-                        <!-- Astrology -->
-                        <li class="dropdown-section-title">Astrology</li>
+                        <li class="dropdown-header">Astrology</li>
                         <li><a class="dropdown-item" href="{{ url_for('course_astrology_associate') }}">Associate Coach</a></li>
                         <li><a class="dropdown-item" href="{{ url_for('course_astrology_practitioner') }}">Professional Coach</a></li>
                         <li><a class="dropdown-item" href="{{ url_for('course_astrology_master') }}">Master Coach</a></li>
 
                         <li><hr class="dropdown-divider"></li>
 
-                        <!-- Hypnosis -->
-                        <li class="dropdown-section-title">Hypnosis</li>
+                        <li class="dropdown-header">Hypnosis</li>
                         <li><a class="dropdown-item" href="{{ url_for('course_hypnosis_associate') }}">Associate Practitioner</a></li>
                         <li><a class="dropdown-item" href="{{ url_for('course_hypnosis_master') }}">Master Practitioner</a></li>
 
                         <li><hr class="dropdown-divider"></li>
 
-                        <!-- Mindfulness -->
-                        <li class="dropdown-section-title">Mindfulness</li>
+                        <li class="dropdown-header">Mindfulness</li>
                         <li><a class="dropdown-item" href="{{ url_for('course_mindfulness_associate') }}">Associate Practitioner</a></li>
                         <li><a class="dropdown-item" href="{{ url_for('course_mindfulness_practitioner') }}">Practitioner</a></li>
                         <li><a class="dropdown-item" href="{{ url_for('course_mindfulness_master') }}">Master Practitioner</a></li>
 
                         <li><hr class="dropdown-divider"></li>
 
-                        <!-- SIGNATURE PROGRAMS -->
-                        <li class="dropdown-section-title">Signature Programs</li>
-                        <li>
-                            <a class="dropdown-item signature-item"
-                               href="{{ url_for('symbolic_intelligence') }}">
-                                🌌 Symbolic Intelligence™
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item signature-item"
-                               href="{{ url_for('integral_symbolic_yoga') }}">
-                                🕉️ Integral Symbolic Yoga™
-                            </a>
-                        </li>
-
+                        <li class="dropdown-header">Signature Programs</li>
+                        <li><a class="dropdown-item" href="{{ url_for('symbolic_intelligence') }}">🌌 Symbolic Intelligence™</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('integral_symbolic_yoga') }}">🕉️ Integral Symbolic Yoga™</a></li>
                     </ul>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('blog') }}">Articles</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
-                </li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('blog') }}">Articles</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
 
                 {% if current_user.is_authenticated %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('admin_dashboard') }}">Admin</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
-                </li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('admin_dashboard') }}">Admin</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('logout') }}">Logout</a></li>
                 {% endif %}
 
             </ul>
@@ -151,21 +132,50 @@
 {% endif %}
 {% endwith %}
 
-<!-- MAIN CONTENT -->
+<!-- MAIN -->
 <main>
     {% block content %}{% endblock %}
 </main>
 
-<!-- FOOTER (unchanged) -->
-<footer class="footer mt-5">
-    <div class="container">
-        <div class="row py-5">
-            <div class="col text-center">
-                <p class="footer-text">&copy; 2026 Celestial Mindworks</p>
+<!-- FOOTER -->
+<footer class="footer mt-5 border-top">
+    <div class="container py-5">
+        <div class="row align-items-center">
+
+            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                <p class="mb-0">&copy; 2026 Celestial Mindworks</p>
             </div>
+
+            <div class="col-md-6 text-center text-md-end">
+                <a href="https://www.instagram.com/celestialmindworks"
+                   target="_blank"
+                   class="me-3 text-decoration-none">
+                    <i class="bi bi-instagram fs-4"></i>
+                </a>
+
+                <a href="https://www.linkedin.com/company/celestialmindworks"
+                   target="_blank"
+                   class="text-decoration-none">
+                    <i class="bi bi-linkedin fs-4"></i>
+                </a>
+            </div>
+
         </div>
     </div>
 </footer>
+
+<!-- Google Analytics -->
+{% if config.GA_MEASUREMENT_ID %}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ config.GA_MEASUREMENT_ID }}"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '{{ config.GA_MEASUREMENT_ID }}', { anonymize_ip: true });
+</script>
+{% endif %}
+
+{% block analytics_body %}{% endblock %}
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
