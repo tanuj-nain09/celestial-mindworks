@@ -64,9 +64,9 @@ login_manager.login_view = "login"
 def get_db_connection():
     return psycopg2.connect(
         os.environ.get("DATABASE_URL"),
-        cursor_factory=RealDictCursor
+        cursor_factory=RealDictCursor,
+        sslmode="require"
     )
-
 def init_db():
     conn = get_db_connection()
     cur = conn.cursor()
@@ -106,9 +106,14 @@ def init_db():
     cur.close()
     conn.close()
 
+
 # Initialize DB safely on startup
 with app.app_context():
-    init_db()
+    try:
+        init_db()
+    except Exception as e:
+        print("DB init failed:", e)
+
 
 # --------------------------------------------------
 # AUTH
