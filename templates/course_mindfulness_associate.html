@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Associate Practitioner - Mindfulness Training | Celestial Mindworks{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="page-title">Mindfulness Training</h1>
+                <p class="page-subtitle">Associate Practitioner Level</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-white py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="mb-5">
+                    <h2 class="section-title mb-4">Course Overview</h2>
+                    <div class="alert alert-info" role="alert">
+                        <strong>Coming Soon</strong> – Curriculum and detailed content will be updated.
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <a href="{{ url_for('contact') }}" class="btn btn-primary btn-lg">Join the Waitlist</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

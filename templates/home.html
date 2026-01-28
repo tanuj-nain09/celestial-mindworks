@@ -1,0 +1,236 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+        <div class="row align-items-center min-vh-75">
+            <div class="col-lg-9 mx-auto text-center">
+                <h1 class="hero-title">Heal at the Root.<br>Transform from the Inside Out.</h1>
+                <p class="hero-tagline">Where Ancient Science Meets Neuroscience</p>
+                <p class="hero-subtitle">
+                    A depth-oriented healing ecosystem integrating subconscious work,
+                    nervous system regulation, symbolic psychology, and embodied wisdom.
+                </p>
+                <div class="mt-4">
+                    <a href="{{ url_for('contact') }}" class="btn btn-primary btn-lg me-2">
+                        Book a Clarity Session
+                    </a>
+                    <a href="{{ url_for('approach') }}" class="btn btn-outline-secondary btn-lg">
+                        Explore the Approach
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHO THIS IS FOR -->
+<section class="section-light py-5">
+    <div class="container">
+        <div class="col-lg-9 mx-auto text-center mb-5">
+            <h2 class="section-title">This Work Is For You If…</h2>
+            <p class="section-description">
+                You sense that your challenges are not random — they are patterns asking to be understood.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="info-card">
+                    <div class="info-icon">🌙</div>
+                    <h4>The Seeker</h4>
+                    <p>You’ve tried multiple paths but still feel something deeper is unresolved.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="info-card">
+                    <div class="info-icon">💫</div>
+                    <h4>The Sensitive</h4>
+                    <p>You feel deeply and need regulation, not more pressure or bypassing.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="info-card">
+                    <div class="info-icon">🧭</div>
+                    <h4>The Transitioning</h4>
+                    <p>You are in a life shift and need clarity, timing, and inner stability.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="info-card">
+                    <div class="info-icon">🌿</div>
+                    <h4>The Conscious</h4>
+                    <p>You value integration — mind, body, energy, and meaning working together.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHAT CHANGES -->
+<section class="section-white py-5">
+    <div class="container">
+        <div class="col-lg-9 mx-auto text-center mb-5">
+            <h2 class="section-title">What Changes When You Heal at the Root</h2>
+            <p class="section-description">
+                We don’t chase symptoms. We work with the systems that create them.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="feature-box">
+                    <h4>Nervous System Safety</h4>
+                    <p>Anxiety softens, sleep improves, and your body learns it is safe again.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="feature-box">
+                    <h4>Emotional Pattern Release</h4>
+                    <p>You stop repeating old loops and respond from awareness instead of wounds.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="feature-box">
+                    <h4>Clarity & Self-Trust</h4>
+                    <p>Decisions become intuitive, grounded, and aligned with your inner truth.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="feature-box">
+                    <h4>Life Alignment</h4>
+                    <p>Your outer life begins to reflect the internal shifts you’ve made.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SIGNATURE PROGRAMS -->
+<section class="section-light py-5">
+    <div class="container">
+        <div class="col-lg-9 mx-auto text-center mb-5">
+            <h2 class="section-title">Signature Programs</h2>
+            <p class="section-description">
+                Deep, non-generic paths for real transformation and professional mastery.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="service-preview-card h-100">
+                    <h4>🌌 Symbolic Intelligence™</h4>
+                    <p>
+                        A flagship certification program integrating neuroscience,
+                        subconscious healing, symbolic psychology, and Eastern wisdom.
+                    </p>
+                    <a href="{{ url_for('symbolic_intelligence') }}" class="btn btn-outline-primary">
+                        Explore Program
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="service-preview-card h-100">
+                    <h4>🕉️ Integral Symbolic Yoga™</h4>
+                    <p>
+                        A depth-oriented yogic path for inner stillness, emotional maturity,
+                        and embodied awareness — not fitness yoga.
+                    </p>
+                    <a href="{{ url_for('integral_symbolic_yoga') }}" class="btn btn-outline-primary">
+                        Explore Path
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROFESSIONAL TRAININGS -->
+<section class="section-white py-5">
+    <div class="container">
+        <div class="col-lg-9 mx-auto text-center mb-5">
+            <h2 class="section-title">Professional Trainings</h2>
+            <p class="section-description">
+                Structured learning tracks for practitioners and serious students.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="service-preview-card">
+                    <h4>Astrology Training</h4>
+                    <p>Astrology used psychologically and symbolically — not predictive superstition.</p>
+                    <a href="{{ url_for('modalities') }}" class="btn btn-sm btn-outline-primary">
+                        View Training
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="service-preview-card">
+                    <h4>Hypnosis Training</h4>
+                    <p>Clinical hypnotherapy integrated with trauma awareness and ethics.</p>
+                    <a href="{{ url_for('modalities') }}" class="btn btn-sm btn-outline-primary">
+                        View Training
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="service-preview-card">
+                    <h4>Mindfulness Training</h4>
+                    <p>Embodied mindfulness focused on nervous system regulation and presence.</p>
+                    <a href="{{ url_for('modalities') }}" class="btn btn-sm btn-outline-primary">
+                        View Training
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="section-light py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5 mb-4 mb-lg-0">
+                <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&h=500&fit=crop"
+                     alt="Founder"
+                     class="img-fluid rounded">
+            </div>
+            <div class="col-lg-7">
+                <h2 class="section-title">The Story Behind the Work</h2>
+                <p class="lead">
+                    This work was born from lived experience — not theory.
+                </p>
+                <p>
+                    Years of personal healing, professional training, and deep inquiry revealed
+                    that transformation happens when systems are integrated, not isolated.
+                </p>
+                <a href="{{ url_for('about') }}" class="btn btn-outline-secondary">
+                    Read the Full Story
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section py-5">
+    <div class="container">
+        <div class="col-lg-9 mx-auto text-center">
+            <h2 class="section-title text-white">Begin Where You Are</h2>
+            <p class="text-white mb-4">
+                Clarity, regulation, and alignment start with one conscious step.
+            </p>
+            <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">
+                Book a Clarity Session
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

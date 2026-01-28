@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+
+{% block title %}Modalities - Celestial Mindworks{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="page-title">Modalities</h1>
+                <p class="page-subtitle">Professional training and certification programs integrating ancient wisdom with modern practice.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-white py-4">
+    <div class="container">
+        <!-- Astrology Section -->
+        <div class="service-detail-card mb-4">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="service-title">Astrology</h2>
+                    <p class="service-description">Professional astrology mentorship and coaching programs for practitioners at all levels.</p>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-4 mb-3">
+                            <div class="feature-box">
+                                <h4>Associate Mentor and Coach</h4>
+                                <p>Foundation training in astrological principles, chart interpretation, and client consultation basics. Perfect for those beginning their journey in professional astrology.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="feature-box">
+                                <h4>Professional Mentor and Coach</h4>
+                                <p>Advanced techniques in predictive astrology, transit analysis, and therapeutic application. Develop your unique voice as a professional astrologer.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="feature-box">
+                                <h4>Master Mentor and Coach</h4>
+                                <p>Expert-level mastery in complex chart synthesis, spiritual counseling, and teaching others. Train to become a mentor yourself.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hypnosis Section -->
+        <div class="service-detail-card mb-4">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="service-title">Hypnosis</h2>
+                    <p class="service-description">Comprehensive hypnotherapy certification combining clinical techniques with holistic healing approaches.</p>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-4 mb-3">
+                            <div class="feature-box">
+                                <h4>Associate Practitioner</h4>
+                                <p>Introduction to hypnotic principles, induction techniques, and basic therapeutic protocols for stress, anxiety, and habit change.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="feature-box">
+                                <h4>Hypnosis Practitioner</h4>
+                                <p>Advanced hypnotherapy methods including regression, parts therapy, and subconscious reprogramming for deep transformation.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="feature-box">
+                                <h4>Master Practitioner</h4>
+                                <p>Expert-level training in trauma-informed hypnosis, somatic integration, and complex case management for professional practice.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mindfulness Section -->
+        <div class="service-detail-card mb-4">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="service-title">Mindfulness</h2>
+                    <p class="service-description">Integrative mindfulness coaching certification merging meditation, neuroscience, and embodied awareness practices.</p>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-4 mb-3">
+                            <div class="feature-box">
+                                <h4>Associate Coach Practitioner</h4>
+                                <p>Foundational mindfulness techniques, meditation instruction, and presence-based coaching for personal and client transformation.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="feature-box">
+                                <h4>Professional Coach Practitioner</h4>
+                                <p>Advanced mindfulness coaching methods including somatic awareness, nervous system regulation, and trauma-sensitive approaches.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="feature-box">
+                                <h4>Master Coach Practitioner</h4>
+                                <p>Master-level integration of mindfulness with neuroscience, embodiment practices, and holistic life coaching for professional excellence.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-light py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="section-title">Ready to Begin Your Training?</h2>
+                <p>Schedule a complimentary consultation to explore which modality and level is right for your journey.</p>
+                <a href="{{ url_for('contact') }}" class="btn btn-primary mt-3">Schedule Consultation</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

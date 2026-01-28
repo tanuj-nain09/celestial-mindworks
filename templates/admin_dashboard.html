@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard - Celestial Mindworks{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="page-title">Admin Dashboard</h1>
+                <p class="page-subtitle">Manage your content and messages</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-white py-5">
+    <div class="container">
+        <div class="row g-4 mb-5">
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <h3 class="mb-2">{{ posts_count }}</h3>
+                        <p class="text-muted">Blog Posts</p>
+                        <a href="{{ url_for('admin_new_post') }}" class="btn btn-sm btn-primary">Create Post</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <h3 class="mb-2">{{ messages_count }}</h3>
+                        <p class="text-muted">Contact Messages</p>
+                        <a href="{{ url_for('admin_messages') }}" class="btn btn-sm btn-primary">View Messages</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <h3 class="mb-2">✓</h3>
+                        <p class="text-muted">Site Status</p>
+                        <span class="badge bg-success">Active</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <h4 class="mb-3">Quick Actions</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <a href="{{ url_for('admin_new_post') }}" class="text-decoration-none">
+                                    <span class="badge bg-light text-dark">+</span> Create New Blog Post
+                                </a>
+                            </li>
+                            <li class="mb-2">
+                                <a href="{{ url_for('admin_messages') }}" class="text-decoration-none">
+                                    <span class="badge bg-light text-dark">📧</span> View Contact Messages
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url_for('blog') }}" class="text-decoration-none">
+                                    <span class="badge bg-light text-dark">📖</span> View Published Articles
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

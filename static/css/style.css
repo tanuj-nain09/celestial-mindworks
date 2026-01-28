@@ -1,0 +1,829 @@
+/* ==========================================
+   CELESTIAL MINDWORKS - CUSTOM STYLES
+   Where Ancient Science Meets Neuroscience
+   ========================================== */
+
+:root {
+  /* Updated to white and pastel green theme */
+  --primary: #88c9a0;
+  --primary-light: #a8dbbb;
+  --primary-dark: #6bb088;
+  --accent: #b0d9c2;
+  --accent-gold: #c9a961; /* Keeping this as it wasn't explicitly removed, just 'accent-sage' added */
+  --sage: #9fc5af; /* Renamed to accent-sage in updates, but keeping 'sage' variable for clarity based on usage in existing code for philosophy-box */
+  --accent-sage: #9fc5af;
+  --neutral-100: #ffffff;
+  --neutral-200: #f8f9fa;
+  --neutral-300: #e9ecef;
+  --neutral-700: #495057;
+  --neutral-900: #212529;
+
+  /* Typography */
+  --font-heading: "Cormorant Garamond", serif;
+  --font-body: "Inter", sans-serif;
+}
+
+/* ==========================================
+   GLOBAL STYLES
+   ========================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--neutral-700);
+  background-color: var(--neutral-100);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--neutral-900);
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem; /* reduced from 3rem */
+}
+h2 {
+  font-size: 2rem; /* reduced from 2.5rem */
+}
+h3 {
+  font-size: 1.75rem; /* reduced from 2rem */
+}
+h4 {
+  font-size: 1.5rem;
+}
+h5 {
+  font-size: 1.25rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary);
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+.lead {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--neutral-700);
+}
+
+/* ==========================================
+   NAVIGATION
+   ========================================== */
+
+.navbar {
+  background-color: var(--neutral-100) !important;
+  padding: 1rem 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-brand .brand-name {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+
+.nav-link {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--neutral-700) !important;
+  padding: 0.5rem 1rem !important;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--primary) !important;
+}
+
+/* ==========================================
+   BUTTONS
+   ========================================== */
+
+.btn {
+  font-family: var(--font-body);
+  font-weight: 500;
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(139, 115, 85, 0.3);
+}
+
+.btn-outline-primary {
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  background-color: transparent;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+.btn-outline-secondary {
+  border: 2px solid var(--neutral-700);
+  color: var(--neutral-700);
+  background-color: transparent;
+}
+
+.btn-outline-secondary:hover {
+  background-color: var(--neutral-700);
+  color: white;
+}
+
+.btn-light {
+  background-color: white;
+  color: var(--primary-dark);
+}
+
+.btn-outline-light {
+  border: 2px solid white;
+  color: white;
+}
+
+/* ==========================================
+   SECTIONS
+   ========================================== */
+
+/* reduced padding from default Bootstrap values */
+section {
+  padding: 2.5rem 0 !important;
+}
+
+.section-white {
+  background-color: white;
+}
+
+.section-light {
+  background-color: var(--neutral-200);
+}
+
+.section-title {
+  font-size: 2rem; /* reduced from 2.5rem */
+  margin-bottom: 1rem; /* reduced from 1.5rem */
+  text-align: center;
+}
+
+.section-description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--neutral-700);
+  text-align: center;
+}
+
+/* ==========================================
+   HERO SECTION
+   ========================================== */
+
+.hero {
+  background: linear-gradient(135deg, var(--neutral-100) 0%, var(--neutral-200) 100%);
+  padding: 3rem 0; /* reduced from 5rem */
+}
+
+.hero-title {
+  font-size: 2.5rem; /* reduced from 3.5rem */
+  font-weight: 400;
+  margin-bottom: 0.75rem; /* reduced from 1rem */
+  color: var(--neutral-900);
+}
+
+.hero-tagline {
+  font-family: var(--font-heading);
+  font-size: 1.25rem; /* reduced from 1.5rem */
+  font-style: italic;
+  color: var(--primary);
+  margin-bottom: 1rem; /* reduced from 1.5rem */
+}
+
+.hero-subtitle {
+  font-size: 1.1rem; /* reduced from 1.2rem */
+  line-height: 1.6; /* reduced from 1.7 */
+  color: var(--neutral-700);
+  margin-bottom: 1.5rem; /* reduced from 2rem */
+}
+
+.min-vh-75 {
+  min-height: auto; /* changed from 75vh */
+}
+
+/* ==========================================
+   CARDS
+   ========================================== */
+
+.info-card {
+  background: white;
+  padding: 1.5rem; /* reduced from 2rem */
+  border-radius: 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  height: 100%;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.info-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.info-card h4 {
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+}
+
+.info-card p {
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+.feature-box {
+  background: var(--neutral-100);
+  padding: 2rem;
+  border-radius: 15px;
+  border-left: 4px solid var(--primary);
+  transition: all 0.3s ease;
+}
+
+.feature-box:hover {
+  background: white;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.feature-box h4 {
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+}
+
+.framework-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  height: 100%;
+}
+
+.framework-card h5 {
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.service-preview-card {
+  background: var(--neutral-100);
+  padding: 2.5rem;
+  border-radius: 15px;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.service-preview-card:hover {
+  background: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}
+
+.service-preview-card h4 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+/* ==========================================
+   PAGE HEADER
+   ========================================== */
+
+.page-header {
+  background: linear-gradient(135deg, var(--neutral-100) 0%, var(--neutral-200) 100%);
+  padding: 2.5rem 0 2rem; /* reduced from 4rem 0 3rem */
+  text-align: center;
+}
+
+.page-title {
+  font-size: 2.25rem; /* reduced from 3rem */
+  margin-bottom: 0.75rem; /* reduced from 1rem */
+}
+
+.page-subtitle {
+  font-size: 1.2rem;
+  color: var(--neutral-700);
+}
+
+/* ==========================================
+   ABOUT PAGE
+   ========================================== */
+
+.about-image-placeholder,
+.founder-image-placeholder,
+.service-image-placeholder {
+  background: var(--neutral-200);
+  border-radius: 15px;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.philosophy-box {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  border-left: 4px solid var(--sage);
+}
+
+.philosophy-box h4 {
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+}
+
+.credentials-list ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.credentials-list li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--neutral-300);
+}
+
+.credentials-list li:before {
+  content: "✓ ";
+  color: var(--primary);
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+/* ==========================================
+   SERVICES PAGE
+   ========================================== */
+
+.service-detail-card {
+  background: white;
+  padding: 3rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.service-title {
+  font-size: 2rem;
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+}
+
+.service-description {
+  font-size: 1.2rem;
+  color: var(--neutral-700);
+  margin-bottom: 2rem;
+}
+
+.service-detail-card ul {
+  margin-bottom: 1.5rem;
+}
+
+.service-detail-card li {
+  margin-bottom: 0.5rem;
+}
+
+/* ==========================================
+   APPROACH PAGE
+   ========================================== */
+
+.modality-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.modality-card:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.modality-icon-large {
+  font-size: 4rem;
+  text-align: center;
+}
+
+.modality-card h3 {
+  font-size: 1.8rem;
+  color: var(--primary-dark);
+  margin-bottom: 0.5rem;
+}
+
+.modality-card h5 {
+  color: var(--accent);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Added styles for client example timeline and custom lists */
+.timeline-container {
+  margin-top: 1.5rem;
+}
+
+.custom-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1rem;
+}
+
+.custom-list li {
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  color: var(--neutral-700);
+}
+
+.custom-list li:before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: bold;
+  margin-right: 0.75rem;
+}
+
+.results-card {
+  background: linear-gradient(135deg, var(--neutral-200) 0%, var(--neutral-100) 100%);
+  padding: 2rem;
+  border-radius: 15px;
+  border-left: 4px solid var(--primary);
+  margin-top: 1.5rem;
+}
+
+.results-card h4 {
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+}
+
+.results-card .custom-list li:before {
+  content: "✓";
+  color: var(--primary);
+  margin-right: 0.5rem;
+}
+
+/* ==========================================
+   BLOG
+   ========================================== */
+
+.blog-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.blog-card-body {
+  padding: 2rem;
+}
+
+.blog-date {
+  font-size: 0.85rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.blog-card-title {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.blog-card-title a {
+  color: var(--neutral-900);
+  text-decoration: none;
+}
+
+.blog-card-title a:hover {
+  color: var(--primary);
+}
+
+.blog-card-excerpt {
+  font-size: 0.95rem;
+  color: var(--neutral-700);
+  margin-bottom: 1rem;
+}
+
+.blog-tags {
+  margin-bottom: 1rem;
+}
+
+.blog-tag {
+  display: inline-block;
+  background: var(--neutral-200);
+  color: var(--neutral-700);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.blog-read-more {
+  color: var(--primary);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.blog-post-header {
+  border-bottom: 2px solid var(--neutral-200);
+  padding-bottom: 2rem;
+}
+
+.blog-post-title {
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+.blog-post-content {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--neutral-700);
+}
+
+.blog-post-content h2 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.blog-post-content h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.blog-post-content p {
+  margin-bottom: 1.5rem;
+}
+
+.empty-state {
+  text-align: center;
+}
+
+/* ==========================================
+   CONTACT PAGE
+   ========================================== */
+
+.contact-form-card {
+  background: white;
+  padding: 3rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.form-label {
+  font-weight: 500;
+  color: var(--neutral-900);
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  border: 2px solid var(--neutral-300);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.2rem rgba(139, 115, 85, 0.15);
+}
+
+/* ==========================================
+   CTA SECTION
+   ========================================== */
+
+.cta-section {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+}
+
+.cta-section .section-title {
+  color: white;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+
+.footer {
+  background-color: var(--neutral-900);
+  color: var(--neutral-300);
+  padding: 0;
+}
+
+.footer-heading {
+  font-family: var(--font-heading);
+  color: white;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.footer-text {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.footer-link {
+  color: var(--neutral-300);
+  text-decoration: none;
+  display: block;
+  padding: 0.25rem 0;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--accent-gold);
+}
+
+.footer-copyright {
+  font-size: 0.85rem;
+  color: var(--neutral-300);
+  margin: 0;
+}
+
+/* Added social links styling */
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--neutral-300);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-link:hover {
+  background-color: var(--primary);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 992px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .page-title {
+    font-size: 2.5rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-tagline {
+    font-size: 1.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .blog-post-title {
+    font-size: 2rem;
+  }
+}
+
+/* ==========================================
+   MOBILE SPACING FIX (HOME HERO)
+   ========================================== */
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .hero-title {
+    margin-bottom: 1.2rem;
+    line-height: 1.3;
+  }
+
+  .hero-tagline {
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    margin-bottom: 2rem;
+    padding: 0 0.5rem;
+  }
+
+  .hero .btn {
+    margin-bottom: 0.75rem;
+  }
+
+  .hero .btn + .btn {
+    margin-left: 0 !important;
+  }
+}
+
+/* ==========================================
+   TRAININGS DROPDOWN POLISH
+========================================== */
+
+.training-menu {
+  min-width: 320px;
+  padding: 0.75rem 0;
+}
+
+.dropdown-section-title {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--neutral-700);
+  padding: 0.5rem 1.25rem;
+}
+
+.dropdown-item {
+  font-size: 0.9rem;
+  padding: 0.45rem 1.25rem;
+}
+
+.dropdown-item:hover {
+  background-color: var(--neutral-200);
+}
+
+/* Signature programs = premium feel */
+.signature-item {
+  font-weight: 500;
+  color: var(--primary-dark);
+}
+
+.signature-item:hover {
+  background-color: rgba(136, 201, 160, 0.15);
+}

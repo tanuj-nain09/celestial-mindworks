@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post['title'] }} - Celestial Mindworks{% endblock %}
+
+{% block content %}
+<section class="section-white py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="blog-post-header mb-4">
+                    <div class="blog-date mb-2">{{ post['created_at'][:10] }}</div>
+                    <h1 class="blog-post-title">{{ post['title'] }}</h1>
+                    {% if post['tags'] %}
+                    <div class="blog-tags mt-3">
+                        {% for tag in post['tags'].split(',') %}
+                        <span class="blog-tag">{{ tag.strip() }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                
+                <div class="blog-post-content">
+                    {{ post['body']|safe }}
+                </div>
+                
+                <div class="blog-post-footer mt-5 pt-4 border-top">
+                    <a href="{{ url_for('blog') }}" class="btn btn-outline-secondary">← Back to Articles</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-light py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="section-title">Ready to Begin Your Healing Journey?</h2>
+                <p class="mb-4">Book a clarity session and discover how integrated healing can transform your life.</p>
+                <a href="{{ url_for('contact') }}" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

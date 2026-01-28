@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Celestial Mindworks - Where Ancient Science Meets Neuroscience{% endblock %}</title>
+
+    <meta name="description" content="Celestial Mindworks integrates ancient wisdom with modern neuroscience to support nervous system regulation, emotional healing, and life alignment.">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    {% block head %}{% endblock %}
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <div class="container">
+
+        <a class="navbar-brand" href="{{ url_for('home') }}">
+            <span class="brand-name">Celestial Mindworks</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('about') }}">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('modalities') }}">Modalities</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('approach') }}">Approach</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('faq') }}">FAQ</a>
+                </li>
+
+                <!-- TRAININGS (UPDATED) -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle"
+                       href="#"
+                       id="trainingsDropdown"
+                       role="button"
+                       data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        Trainings
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-end training-menu"
+                        aria-labelledby="trainingsDropdown">
+
+                        <!-- Astrology -->
+                        <li class="dropdown-section-title">Astrology</li>
+                        <li><a class="dropdown-item" href="{{ url_for('course_astrology_associate') }}">Associate Coach</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('course_astrology_practitioner') }}">Professional Coach</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('course_astrology_master') }}">Master Coach</a></li>
+
+                        <li><hr class="dropdown-divider"></li>
+
+                        <!-- Hypnosis -->
+                        <li class="dropdown-section-title">Hypnosis</li>
+                        <li><a class="dropdown-item" href="{{ url_for('course_hypnosis_associate') }}">Associate Practitioner</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('course_hypnosis_master') }}">Master Practitioner</a></li>
+
+                        <li><hr class="dropdown-divider"></li>
+
+                        <!-- Mindfulness -->
+                        <li class="dropdown-section-title">Mindfulness</li>
+                        <li><a class="dropdown-item" href="{{ url_for('course_mindfulness_associate') }}">Associate Practitioner</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('course_mindfulness_practitioner') }}">Practitioner</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('course_mindfulness_master') }}">Master Practitioner</a></li>
+
+                        <li><hr class="dropdown-divider"></li>
+
+                        <!-- SIGNATURE PROGRAMS -->
+                        <li class="dropdown-section-title">Signature Programs</li>
+                        <li>
+                            <a class="dropdown-item signature-item"
+                               href="{{ url_for('symbolic_intelligence') }}">
+                                🌌 Symbolic Intelligence™
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item signature-item"
+                               href="{{ url_for('integral_symbolic_yoga') }}">
+                                🕉️ Integral Symbolic Yoga™
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('blog') }}">Articles</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+                </li>
+
+                {% if current_user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('admin_dashboard') }}">Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                </li>
+                {% endif %}
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- FLASH MESSAGES -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div class="container mt-3">
+    {% for category, message in messages %}
+    <div class="alert alert-{{ 'success' if category == 'success' else 'danger' }} alert-dismissible fade show">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+
+<!-- MAIN CONTENT -->
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<!-- FOOTER (unchanged) -->
+<footer class="footer mt-5">
+    <div class="container">
+        <div class="row py-5">
+            <div class="col text-center">
+                <p class="footer-text">&copy; 2026 Celestial Mindworks</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
