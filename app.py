@@ -377,15 +377,15 @@ def course_symbolic_intelligence_master():
 # INTEGRAL SYMBOLIC YOGA
 
 @app.route("/trainings/integral-symbolic-yoga/associate")
-def course_symbolic_intelligence_associate():
+def course_integral_symbolic_yoga_associate():
     return render_template("integral_symbolic_yoga.html")
 
 @app.route("/trainings/integral-symbolic-yoga/practitioner")
-def course_symbolic_intelligence_practitioner():
+def course_integral_symbolic_yoga_practitioner():
     return render_template("integral_symbolic_yoga.html")
 
 @app.route("/trainings/integral-symbolic-yoga/master")
-def course_symbolic_intelligence_master():
+def ccourse_integral_symbolic_yoga_master():
     return render_template("integral_symbolic_yoga.html")
 
 # --------------------------------------------------
