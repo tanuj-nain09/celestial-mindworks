@@ -76,15 +76,16 @@
 
                         <!-- Astrology -->
                         <li class="dropdown-section-title">Astrology</li>
-                        <li><a class="dropdown-item" href="{{ url_for('course_astrology_associate') }}">Associate Coach</a></li>
-                        <li><a class="dropdown-item" href="{{ url_for('course_astrology_practitioner') }}">Professional Coach</a></li>
-                        <li><a class="dropdown-item" href="{{ url_for('course_astrology_master') }}">Master Coach</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('course_astrology_associate') }}">Associate Practitioner</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('course_astrology_practitioner') }}">Practitioner</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('course_astrology_master') }}">Master Practitioner</a></li>
 
                         <li><hr class="dropdown-divider"></li>
 
                         <!-- Hypnosis -->
                         <li class="dropdown-section-title">Hypnosis</li>
                         <li><a class="dropdown-item" href="{{ url_for('course_hypnosis_associate') }}">Associate Practitioner</a></li>
+                        <li><a class="dropdown-item" href="{{url_for(course_hypnosis_practitioner) }}">Practitioner</a></li>
                         <li><a class="dropdown-item" href="{{ url_for('course_hypnosis_master') }}">Master Practitioner</a></li>
 
                         <li><hr class="dropdown-divider"></li>
@@ -96,22 +97,24 @@
                         <li><a class="dropdown-item" href="{{ url_for('course_mindfulness_master') }}">Master Practitioner</a></li>
 
                         <li><hr class="dropdown-divider"></li>
+                        
+                        <!-- Symbolic Intelligence -->
+                        <li class="dropdown-section-title">Symbolic Intelligence</li>
+                        <li><a class="dropdown-item" href="{{ url_for('course_symbolic_intelligence_associate') }}">Associate Practitioner</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('course_symbolic_intelligence_practitioner') }}">Practitioner</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('course_symbolic_intelligence_master') }}">Master Practitioner</a></li>
 
-                        <!-- SIGNATURE PROGRAMS -->
-                        <li class="dropdown-section-title">Signature Programs</li>
-                        <li>
-                            <a class="dropdown-item"
-                               href="{{ url_for('symbolic_intelligence') }}">
-                                 Symbolic Intelligence
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item"
-                               href="{{ url_for('integral_symbolic_yoga') }}">
-                                 Integral Symbolic Yoga
-                            </a>
-                        </li>
-
+                        <li><hr class="dropdown-divider"></li>
+                        
+                        <!-- Integral Symbolic Yoga-->
+                        <li class="dropdown-section-title">Integral Symbolic Yoga</li>
+                        <li><a class="dropdown-item" href="{{ url_for('course_integral_symbolic_yoga_associate') }}">Associate Practitioner</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('course_integral_symbolic_yoga_practitioner') }}">Practitioner</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('course_integral_symbolic_yoga_master') }}">Master Practitioner</a></li>
+                        
+                        <li><hr class="dropdown-divider"></li>
+                    
+                    
                     </ul>
                 </li>
 

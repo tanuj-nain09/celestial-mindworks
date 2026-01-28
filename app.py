@@ -338,6 +338,10 @@ def course_astrology_master():
 def course_hypnosis_associate():
     return render_template("course_hypnosis_associate.html")
 
+@app.route("/trainings/hypnosis/practitioner")
+def course_hypnosis_practitioner():
+    return render_template("course_hypnosis_associate.html")
+
 @app.route("/trainings/hypnosis/master")
 def course_hypnosis_master():
     return render_template("course_hypnosis_master.html")
@@ -356,43 +360,33 @@ def course_mindfulness_practitioner():
 def course_mindfulness_master():
     return render_template("course_mindfulness_master.html")
 
+# SYMBOLIC INTELLIGENCE
 
-# --------------------------------------------------
-# SIGNATURE PROGRAMS
-# --------------------------------------------------
-
-@app.route("/programs/symbolic-intelligence")
-def symbolic_intelligence():
+@app.route("/trainings/symbolic-intelligence/associate")
+def course_symbolic_intelligence_associate():
     return render_template("symbolic_intelligence.html")
 
-@app.route("/programs/integral-symbolic-yoga")
-def integral_symbolic_yoga():
+@app.route("/trainings/symbolic-intelligence/practitioner")
+def course_symbolic_intelligence_practitioner():
+    return render_template("symbolic_intelligence.html")
+
+@app.route("/trainings/symbolic-intelligence/master")
+def course_symbolic_intelligence_master():
+    return render_template("symbolic_intelligence.html")
+
+# INTEGRAL SYMBOLIC YOGA
+
+@app.route("/trainings/integral-symbolic-yoga/associate")
+def course_symbolic_intelligence_associate():
     return render_template("integral_symbolic_yoga.html")
 
-@app.route("/createadmin")
-def create_admin():
-    username = "kiranhsharma"
-    password = "Kiran@143"
+@app.route("/trainings/integral-symbolic-yoga/practitioner")
+def course_symbolic_intelligence_practitioner():
+    return render_template("integral_symbolic_yoga.html")
 
-    conn = get_db_connection()
-    cur = conn.cursor()
-
-    cur.execute("SELECT id FROM users WHERE username = %s", (username,))
-    if cur.fetchone():
-        cur.close()
-        conn.close()
-        return "Admin already exists"
-
-    password_hash = generate_password_hash(password)
-    cur.execute(
-        "INSERT INTO users (username, password_hash) VALUES (%s, %s)",
-        (username, password_hash)
-    )
-    conn.commit()
-
-    cur.close()
-    conn.close()
-    return "Admin created. DELETE THIS ROUTE NOW."
+@app.route("/trainings/integral-symbolic-yoga/master")
+def course_symbolic_intelligence_master():
+    return render_template("integral_symbolic_yoga.html")
 
 # --------------------------------------------------
 
