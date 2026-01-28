@@ -261,16 +261,30 @@ def logout():
 def admin_dashboard():
     conn = get_db_connection()
     cur = conn.cursor()
+
     cur.execute("SELECT COUNT(*) AS count FROM blog_posts")
     posts_count = cur.fetchone()["count"]
+
     cur.execute("SELECT COUNT(*) AS count FROM contact_messages")
     messages_count = cur.fetchone()["count"]
+
+    # ADD THIS
+    cur.execute("""
+        SELECT id, title, slug, created_at
+        FROM blog_posts
+        ORDER BY created_at DESC
+        LIMIT 5
+    """)
+    posts = cur.fetchall()
+
     cur.close()
     conn.close()
+
     return render_template(
         "admin_dashboard.html",
         posts_count=posts_count,
-        messages_count=messages_count
+        messages_count=messages_count,
+        posts=posts
     )
 
 @app.route("/admin/blog/new", methods=["GET", "POST"])

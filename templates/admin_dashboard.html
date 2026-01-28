@@ -1,33 +1,26 @@
 {% extends "base.html" %}
-
 {% block title %}Admin Dashboard - Celestial Mindworks{% endblock %}
 
 {% block content %}
 
-<!-- HEADER -->
 <section class="page-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 mx-auto text-center">
-                <h1 class="page-title">Admin Dashboard</h1>
-                <p class="page-subtitle">Content, messages, and site overview</p>
-            </div>
-        </div>
+    <div class="container text-center">
+        <h1 class="page-title">Admin Dashboard</h1>
+        <p class="page-subtitle">Manage content and messages</p>
     </div>
 </section>
 
-<!-- STATS -->
 <section class="section-white py-5">
     <div class="container">
 
+        <!-- STATS -->
         <div class="row g-4 mb-5">
             <div class="col-md-4">
-                <div class="card shadow-sm h-100">
-                    <div class="card-body text-center">
-                        <h2 class="fw-bold">{{ posts_count }}</h2>
-                        <p class="text-muted mb-3">Published Blog Posts</p>
-                        <a href="{{ url_for('admin_new_post') }}"
-                           class="btn btn-sm btn-primary">
+                <div class="card shadow-sm text-center">
+                    <div class="card-body">
+                        <h2>{{ posts_count }}</h2>
+                        <p class="text-muted">Blog Posts</p>
+                        <a href="{{ url_for('admin_new_post') }}" class="btn btn-sm btn-primary">
                             + New Post
                         </a>
                     </div>
@@ -35,76 +28,65 @@
             </div>
 
             <div class="col-md-4">
-                <div class="card shadow-sm h-100">
-                    <div class="card-body text-center">
-                        <h2 class="fw-bold">{{ messages_count }}</h2>
-                        <p class="text-muted mb-3">Contact Messages</p>
-                        <a href="{{ url_for('admin_messages') }}"
-                           class="btn btn-sm btn-primary">
+                <div class="card shadow-sm text-center">
+                    <div class="card-body">
+                        <h2>{{ messages_count }}</h2>
+                        <p class="text-muted">Messages</p>
+                        <a href="{{ url_for('admin_messages') }}" class="btn btn-sm btn-primary">
                             View Inbox
                         </a>
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-4">
-                <div class="card shadow-sm h-100">
-                    <div class="card-body text-center">
-                        <h2 class="fw-bold">✓</h2>
-                        <p class="text-muted mb-3">Site Status</p>
-                        <span class="badge bg-success px-3 py-2">Live & Healthy</span>
-                    </div>
-                </div>
-            </div>
         </div>
 
-        <!-- MANAGEMENT -->
+        <!-- RECENT POSTS -->
         <div class="row">
             <div class="col-lg-10 mx-auto">
                 <div class="card shadow-sm">
                     <div class="card-body p-4">
 
-                        <h4 class="mb-4">Content Management</h4>
+                        <h4 class="mb-4">Recent Blog Posts</h4>
 
-                        <div class="row g-3">
-
-                            <div class="col-md-4">
-                                <a href="{{ url_for('admin_new_post') }}"
-                                   class="card border-0 shadow-sm h-100 text-decoration-none">
-                                    <div class="card-body text-center">
-                                        <h5 class="mb-2">Create Post</h5>
-                                        <p class="text-muted small mb-0">
-                                            Publish a new article
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="col-md-4">
-                                <a href="{{ url_for('blog') }}"
-                                   class="card border-0 shadow-sm h-100 text-decoration-none">
-                                    <div class="card-body text-center">
-                                        <h5 class="mb-2">View Blog</h5>
-                                        <p class="text-muted small mb-0">
-                                            See published articles
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="col-md-4">
-                                <a href="{{ url_for('admin_messages') }}"
-                                   class="card border-0 shadow-sm h-100 text-decoration-none">
-                                    <div class="card-body text-center">
-                                        <h5 class="mb-2">Messages</h5>
-                                        <p class="text-muted small mb-0">
-                                            Read contact submissions
-                                        </p>
-                                    </div>
-                                </a>
-                            </div>
-
-                        </div>
+                        {% if posts %}
+                            <table class="table align-middle">
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Date</th>
+                                        <th class="text-end">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for post in posts %}
+                                    <tr>
+                                        <td>
+                                            <a href="{{ url_for('blog_post', slug=post['slug']) }}"
+                                               target="_blank">
+                                                {{ post['title'] }}
+                                            </a>
+                                        </td>
+                                        <td>
+                                            {{ post['created_at'].strftime('%Y-%m-%d') }}
+                                        </td>
+                                        <td class="text-end">
+                                            <form method="POST"
+                                                  action="{{ url_for('admin_delete_post', post_id=post['id']) }}"
+                                                  class="d-inline"
+                                                  onsubmit="return confirm('Delete this post?');">
+                                                <button type="submit"
+                                                        class="btn btn-sm btn-danger">
+                                                    Delete
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        {% else %}
+                            <p class="text-muted mb-0">No blog posts yet.</p>
+                        {% endif %}
 
                     </div>
                 </div>
