@@ -316,6 +316,21 @@ def admin_messages():
     conn.close()
     return render_template("admin_messages.html", messages=messages)
 
+
+@app.route("/admin/blog/delete/<int:post_id>", methods=["POST"])
+@login_required
+def admin_delete_post(post_id):
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute("DELETE FROM blog_posts WHERE id = %s", (post_id,))
+    conn.commit()
+    cur.close()
+    conn.close()
+
+    flash("Blog post deleted.", "success")
+    return redirect(url_for("admin_dashboard"))
+
+
 @app.route("/faq")
 def faq():
     return render_template("faq.html")

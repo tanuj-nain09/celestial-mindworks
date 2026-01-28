@@ -3,74 +3,115 @@
 {% block title %}Admin Dashboard - Celestial Mindworks{% endblock %}
 
 {% block content %}
+
+<!-- HEADER -->
 <section class="page-header">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto text-center">
                 <h1 class="page-title">Admin Dashboard</h1>
-                <p class="page-subtitle">Manage your content and messages</p>
+                <p class="page-subtitle">Content, messages, and site overview</p>
             </div>
         </div>
     </div>
 </section>
 
+<!-- STATS -->
 <section class="section-white py-5">
     <div class="container">
+
         <div class="row g-4 mb-5">
             <div class="col-md-4">
-                <div class="card shadow-sm">
+                <div class="card shadow-sm h-100">
                     <div class="card-body text-center">
-                        <h3 class="mb-2">{{ posts_count }}</h3>
-                        <p class="text-muted">Blog Posts</p>
-                        <a href="{{ url_for('admin_new_post') }}" class="btn btn-sm btn-primary">Create Post</a>
+                        <h2 class="fw-bold">{{ posts_count }}</h2>
+                        <p class="text-muted mb-3">Published Blog Posts</p>
+                        <a href="{{ url_for('admin_new_post') }}"
+                           class="btn btn-sm btn-primary">
+                            + New Post
+                        </a>
                     </div>
                 </div>
             </div>
+
             <div class="col-md-4">
-                <div class="card shadow-sm">
+                <div class="card shadow-sm h-100">
                     <div class="card-body text-center">
-                        <h3 class="mb-2">{{ messages_count }}</h3>
-                        <p class="text-muted">Contact Messages</p>
-                        <a href="{{ url_for('admin_messages') }}" class="btn btn-sm btn-primary">View Messages</a>
+                        <h2 class="fw-bold">{{ messages_count }}</h2>
+                        <p class="text-muted mb-3">Contact Messages</p>
+                        <a href="{{ url_for('admin_messages') }}"
+                           class="btn btn-sm btn-primary">
+                            View Inbox
+                        </a>
                     </div>
                 </div>
             </div>
+
             <div class="col-md-4">
-                <div class="card shadow-sm">
+                <div class="card shadow-sm h-100">
                     <div class="card-body text-center">
-                        <h3 class="mb-2">✓</h3>
-                        <p class="text-muted">Site Status</p>
-                        <span class="badge bg-success">Active</span>
+                        <h2 class="fw-bold">✓</h2>
+                        <p class="text-muted mb-3">Site Status</p>
+                        <span class="badge bg-success px-3 py-2">Live & Healthy</span>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- MANAGEMENT -->
         <div class="row">
-            <div class="col-lg-8 mx-auto">
+            <div class="col-lg-10 mx-auto">
                 <div class="card shadow-sm">
                     <div class="card-body p-4">
-                        <h4 class="mb-3">Quick Actions</h4>
-                        <ul class="list-unstyled">
-                            <li class="mb-2">
-                                <a href="{{ url_for('admin_new_post') }}" class="text-decoration-none">
-                                    <span class="badge bg-light text-dark">+</span> Create New Blog Post
+
+                        <h4 class="mb-4">Content Management</h4>
+
+                        <div class="row g-3">
+
+                            <div class="col-md-4">
+                                <a href="{{ url_for('admin_new_post') }}"
+                                   class="card border-0 shadow-sm h-100 text-decoration-none">
+                                    <div class="card-body text-center">
+                                        <h5 class="mb-2">Create Post</h5>
+                                        <p class="text-muted small mb-0">
+                                            Publish a new article
+                                        </p>
+                                    </div>
                                 </a>
-                            </li>
-                            <li class="mb-2">
-                                <a href="{{ url_for('admin_messages') }}" class="text-decoration-none">
-                                    <span class="badge bg-light text-dark">📧</span> View Contact Messages
+                            </div>
+
+                            <div class="col-md-4">
+                                <a href="{{ url_for('blog') }}"
+                                   class="card border-0 shadow-sm h-100 text-decoration-none">
+                                    <div class="card-body text-center">
+                                        <h5 class="mb-2">View Blog</h5>
+                                        <p class="text-muted small mb-0">
+                                            See published articles
+                                        </p>
+                                    </div>
                                 </a>
-                            </li>
-                            <li>
-                                <a href="{{ url_for('blog') }}" class="text-decoration-none">
-                                    <span class="badge bg-light text-dark">📖</span> View Published Articles
+                            </div>
+
+                            <div class="col-md-4">
+                                <a href="{{ url_for('admin_messages') }}"
+                                   class="card border-0 shadow-sm h-100 text-decoration-none">
+                                    <div class="card-body text-center">
+                                        <h5 class="mb-2">Messages</h5>
+                                        <p class="text-muted small mb-0">
+                                            Read contact submissions
+                                        </p>
+                                    </div>
                                 </a>
-                            </li>
-                        </ul>
+                            </div>
+
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 </section>
+
 {% endblock %}
